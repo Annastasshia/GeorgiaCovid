@@ -1,0 +1,28 @@
+{
+  "name": "georgiacovid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Annastasshia/GeorgiaCovid.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Annastasshia/GeorgiaCovid/issues"
+  },
+  "homepage": "https://github.com/Annastasshia/GeorgiaCovid#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "eslint": "^7.4.0",
+    "express": "^4.17.1",
+    "handlebars": "^4.7.6",
+    "nyan-progress": "^1.1.0",
+    "request": "^2.88.2"
+  }
+}

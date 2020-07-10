@@ -1,0 +1,34 @@
+{
+    "development": {
+      "username": "root",
+      "password": "rootroot",
+      "database": "blogger",
+      "host": "127.0.0.1",
+      "port": 3306,
+      "dialect": "mysql"
+    },
+    "test": {
+      "username": "root",
+      "password": null,
+      "database": "database_test",
+      "host": "127.0.0.1",
+      "port": 3306,
+      "dialect": "mysql"
+    },
+    "scripts": {
+      "test": "npm run lint",
+      "start": "node server.js",
+      "lint": "eslint --quiet .",
+      "fix": "eslint --fix .",
+      "watch":"nodemon server.js"
+    },
+    "production": {
+      "username": "root",
+      "password": null,
+      "database": "database_production",
+      "host": "127.0.0.1",
+      "port": 3306,
+      "dialect": "mysql"
+    }
+  }
+  
