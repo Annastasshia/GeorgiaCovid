@@ -4,37 +4,47 @@ var db = require("../models");
 module.exports = function(app) {
 
   // GET route for getting all of the Covid Data
-//   Add Kelli's code****************************************
+  //   Add Kelli's code****************************************
 
-
-    // GET route for getting all of the County and City data
-    app.get("/api/ccData", function(req, res) {
-        // findAll returns all entries for a table when used with no options
-        db.Todo.findAll({}).then(function(dbCcData) {
-          res.json(dbCcData);
-        });
+  // Jon's code ***********************************************
+    app.get("/api/Coviddata", function(req, res) {
+      db.Coviddata.findAll({}).then(function(dbCoviddata) {
+        // We have access to the Coviddata as an argument inside of the callback function
+        res.json(dbCoviddata);
       });
+    });
 
-    // GET route for getting all of the business data
-    app.get("/api/todos", function(req, res) {
-        // findAll returns all entries for a table when used with no options
-        db.Todo.findAll({}).then(function(dbTodo) {
-          // We have access to the todos as an argument inside of the callback function
-          res.json(dbTodo);
-        });
+  // GET route for getting all of the County data
+  app.get("/api/County", function(req, res) {
+      // findAll returns all entries for a table when used with no options
+      db.County.findAll({}).then(function(dbCounty) {
+        res.json(dbCounty);
       });
+    });
+
+    // GET route for getting all of the City data
+  app.get("/api/City", function(req, res) {
+    // findAll returns all entries for a table when used with no options
+    db.City.findAll({}).then(function(dbCity) {
+      res.json(dbCity);
+    });
+  });
+
+  // GET route for getting all of the business data to be used client side
+  app.get("/api/business", function(req, res) {
+    db.business.findAll({}).then(function(dbBusiness) {
+      res.json(dbBusiness);
+    });
+  });
 
   // POST route for saving a new business
-  app.post("/api/todos", function(req, res) {
-    // create takes an argument of an object describing the item we want to
-    // insert into our table. In this case we just we pass in an object with a text
-    // and complete property
-    db.Todo.create({
+  app.post("/api/business", function(req, res) {
+    db.Business.create({
+      // need to map fields
       text: req.body.text,
       complete: req.body.complete
-    }).then(function(dbTodo) {
-      // We have access to the new todo as an argument inside of the callback function
-      res.json(dbTodo);
+    }).then(function(dbBusiness) {
+      res.json(dbBusiness);
     });
   });
 
