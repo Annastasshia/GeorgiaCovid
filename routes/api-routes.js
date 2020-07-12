@@ -7,7 +7,7 @@ module.exports = function(app) {
   //   Add Kelli's code****************************************
 
   // Jon's code ***********************************************
-    app.get("/api/Coviddata", function(req, res) {
+    app.get("/api/coviddata", function(req, res) {
       db.Coviddata.findAll({}).then(function(dbCoviddata) {
         // We have access to the Coviddata as an argument inside of the callback function
         res.json(dbCoviddata);
@@ -15,7 +15,7 @@ module.exports = function(app) {
     });
 
   // GET route for getting all of the County data
-  app.get("/api/County", function(req, res) {
+  app.get("/api/county", function(req, res) {
       // findAll returns all entries for a table when used with no options
       db.County.findAll({}).then(function(dbCounty) {
         res.json(dbCounty);
@@ -23,7 +23,7 @@ module.exports = function(app) {
     });
 
     // GET route for getting all of the City data
-  app.get("/api/City", function(req, res) {
+  app.get("/api/city", function(req, res) {
     // findAll returns all entries for a table when used with no options
     db.City.findAll({}).then(function(dbCity) {
       res.json(dbCity);
