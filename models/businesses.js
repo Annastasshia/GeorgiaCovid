@@ -1,10 +1,7 @@
-// Needs updating********************************
-
 module.exports = function(sequelize, DataTypes) {
-    var Business = sequelize.define("Business", {
-      Name: {
+    const Businesses = sequelize.define("Businesses", {
+      name: {
         type: DataTypes.STRING,
-        allowNull: false,
       },
       add1: {
         type: DataTypes.STRING,
@@ -19,18 +16,21 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
       },
       zip: {
-        type: DataTypes.int,
+        type: DataTypes.INTEGER,
       },
       phone: {
-        type: DataTypes.int,
+        type: DataTypes.INTEGER,
       },
       website: {
         type: DataTypes.STRING,
       },
       email: {
         type: DataTypes.STRING,
+      },
+      oId: {
+        type: DataTypes.INTEGER,
       }
     });
-    return Business;
+    return Businesses;
   };
   

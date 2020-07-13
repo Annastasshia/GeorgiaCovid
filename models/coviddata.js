@@ -1,22 +1,20 @@
-// Needs updating********************************
-
 module.exports = function(sequelize, DataTypes) {
-    var Coviddata = sequelize.define("Coviddata", {
+    const Coviddata = sequelize.define("Coviddata", {
       cName: {
         type: DataTypes.STRING,
         allowNull: false,
       },
       cases: {
-        type: DataTypes.int,
+        type: DataTypes.INTEGER,
       },
       deaths: {
-        type: DataTypes.int,
+        type: DataTypes.INTEGER,
       },
       cRate: {
-        type: DataTypes.int,
+        type: DataTypes.INTEGER,
       },
       hospital: {
-        type: DataTypes.int,
+        type: DataTypes.INTEGER,
       }
     });
     return Coviddata;

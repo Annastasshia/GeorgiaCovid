@@ -1,67 +1,103 @@
-
-var db = require("../models");
+const db = require("../models");
 
 module.exports = function(app) {
 
-  // GET route for getting all of the Covid Data
+  // *********************************************************
+  // GET
+  // *********************************************************
   //   Add Kelli's code****************************************
 
   // Jon's code ***********************************************
-    app.get("/api/coviddata", function(req, res) {
-      db.Coviddata.findAll({}).then(function(dbCoviddata) {
-        // We have access to the Coviddata as an argument inside of the callback function
-        res.json(dbCoviddata);
-      });
+  app.get("/api/coviddata", function(req, res) {
+    db.Coviddata.findAll({}).then(function(dbCoviddata) {
+      res.json(dbCoviddata);
     });
+  });
 
   // GET route for getting all of the County data
-  app.get("/api/county", function(req, res) {
-      // findAll returns all entries for a table when used with no options
-      db.County.findAll({}).then(function(dbCounty) {
-        res.json(dbCounty);
-      });
+  app.get("/api/counties", function(req, res) {
+    db.Counties.findAll({}).then(function(dbCounties) {
+      res.json(dbCounties);
     });
+  });
 
-    // GET route for getting all of the City data
-  app.get("/api/city", function(req, res) {
-    // findAll returns all entries for a table when used with no options
-    db.City.findAll({}).then(function(dbCity) {
-      res.json(dbCity);
+  // GET route for getting all of the City data
+  app.get("/api/cities", function(req, res) {
+    db.Cities.findAll({}).then(function(dbCities) {
+      res.json(dbCities);
     });
   });
 
   // GET route for getting all of the business data to be used client side
-  app.get("/api/business", function(req, res) {
-    db.business.findAll({}).then(function(dbBusiness) {
-      res.json(dbBusiness);
+  app.get("/api/owners", function(req, res) {
+    db.Owners.findAll({}).then(function(dbOwners) {
+      res.json(dbOwners);
     });
   });
+  
+  // GET route for getting all of the business data to be used client side
+  app.get("/api/businesses", function(req, res) {
+    db.Businesses.findAll({}).then(function(dbBusinesses) {
+      res.json(dbBusinesses);
+    });
+  });
+
+
+  // *********************************************************
+  // POSTS 
+  // *********************************************************
+    // POST route for saving a new Owner
+    app.post("/api/owners", function(req, res) {
+      db.Owners.create({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
+      }).then(function(dbOwners) {
+        res.json(dbOwners);
+      });
+    });
 
   // POST route for saving a new business
-  app.post("/api/business", function(req, res) {
-    db.Business.create({
-      // need to map fields
-      text: req.body.text,
-      complete: req.body.complete
-    }).then(function(dbBusiness) {
-      res.json(dbBusiness);
+  app.post("/api/businesses", function(req, res) {
+    db.Businesses.create({
+      name: req.body.name,
+      add1: req.body.add1,
+      add2: req.body.add2,
+      city: req.body.city,
+      st: req.body.st,
+      zip: req.body.zip,
+      phone: req.body.phone,
+      website: req.body.website,
+      email: req.body.email,
+      oId: req.body.passoId
+    }).then(function(dbBusinesses) {
+      res.json(dbBusinesses);
     });
   });
 
-    // POST route for saving a new Owner
-    app.post("/api/todos", function(req, res) {
-        // create takes an argument of an object describing the item we want to
-        // insert into our table. In this case we just we pass in an object with a text
-        // and complete property
-        db.Todo.create({
-          text: req.body.text,
-          complete: req.body.complete
-        }).then(function(dbTodo) {
-          // We have access to the new todo as an argument inside of the callback function
-          res.json(dbTodo);
-        });
+  // POST route for saving all business Info
+  app.post("/api/owners", function(req, res) {
+      db.Owners.create({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
+      }).then(function(dbOwners) {
+        res.json(dbOwners);
       });
+    });
 
+  // *********************************************************
+  // UPDATE
+  // *********************************************************
+  // UPDATE for owners
+
+  // UPDATE for business info
+
+  // UPDATE for all business info
+
+  // *********************************************************
+  // DELETE
+  // *********************************************************
   // DELETE route for deleting todos. We can get the id of the todo to be deleted from
   // req.params.id
 //   app.delete("/api/todos/:id", function(req, res) {
@@ -76,38 +112,4 @@ module.exports = function(app) {
 
 //   });
 
-  // PUT route for updating business data. We can get the updated business data from req.body
-  app.put("/api/todos", function(req, res) {
-    // Update takes in an object describing the properties we want to update, and
-    // we use where to describe which objects we want to update
-    db.Todo.update({
-      text: req.body.text,
-      complete: req.body.complete
-    }, {
-      where: {
-        id: req.body.id
-      }
-    }).then(function(dbTodo) {
-      res.json(dbTodo);
-    });
-  });
-
-
-
-  // PUT route for updating covid data. 
-  app.put("/api/todos", function(req, res) {
-    // Update takes in an object describing the properties we want to update, and
-    // we use where to describe which objects we want to update
-    db.Todo.update({
-      text: req.body.text,
-      complete: req.body.complete
-    }, {
-      where: {
-        id: req.body.id
-      }
-    }).then(function(dbTodo) {
-      res.json(dbTodo);
-    });
-  });
-
-};
+}

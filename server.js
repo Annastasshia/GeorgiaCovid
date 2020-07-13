@@ -3,6 +3,8 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
+var session = require("express-session");
+
 
 // Sets up the Express App
 // =============================================================
