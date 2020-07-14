@@ -8,8 +8,13 @@ module.exports = function(app) {
   // *********************************************************
   // GET
   // *********************************************************
-  //   Add Kelli's code****************************************
-
+  //   Ad d Kelli's code****************************************
+  app.get("/counties/:countyName", function(req, res) {
+    db.WhateverDB.findAll({where: {countyId: req.params.countyName}})
+      .then(dbResp => {
+        res.render("county", dbResp[0])
+      })
+  })
   // Jon's code ***********************************************
   app.get("/api/coviddata", function(req, res) {
     db.Coviddata.findAll({}).then(function(dbCoviddata) {

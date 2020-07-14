@@ -14,6 +14,11 @@ h3{
 
 }
 
+#map{
+    text-align: center;
+    /* padding-bottom: 20px; */
+}
+
 
 .tooltip {
     display: none;
