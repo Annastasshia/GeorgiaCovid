@@ -66,6 +66,7 @@
                         .on("mouseover", function (d) {
                             // console.log(d)
                             toolTip.style('display', 'block');
+                            d3.select(this).style("cursor", "pointer");
                             toolTip.html(`<h3><strong>${d.properties.NAME} County</strong></h3>
                             <p><strong>Cases:</strong> ${d.properties.covid_cases}</p>
                             <p><strong>Hospitilizations:</strong> ${d.properties.hospitals}</p> 
@@ -76,6 +77,9 @@
                         })
                         .on("mouseout", function (d) {
                             toolTip.style('display', 'none');
+                        })
+                        .on("click", function(d){
+                            location.href = `/counties/${d.properties.NAME}`
                         })
 
 
