@@ -3,6 +3,11 @@ DROP DATABASE IF EXISTS covid_db;
 CREATE DATABASE covid_db;
 USE covid_db;
 
+
+
+
+
+
 -- CREATE TABLE owner
 -- (
 -- 	id int NOT NULL AUTO_INCREMENT,
