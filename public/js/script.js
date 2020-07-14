@@ -1,5 +1,4 @@
 
-
 // news slider on county page
 var switcher = UIkit.switcher('#switcher', {
     connect: '#content',
