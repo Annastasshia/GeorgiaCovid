@@ -1,0 +1,32 @@
+svg {
+    background: none;
+}
+
+.counties {
+    /* fill: #cccccc; */
+    stroke: black;
+    stroke-width: 0.5;
+}
+
+h3{
+    font: 14px sans-serif;
+    color: white;
+
+}
+
+
+.tooltip {
+    display: none;
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 8px;
+    font: 12px sans-serif;
+    text-align: center;
+    background:  rgba(0, 0, 0, 0.8);
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    line-height: 4px;
+    text-align: left;
+}

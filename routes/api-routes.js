@@ -13,6 +13,7 @@ module.exports = function(app) {
   // Jon's code ***********************************************
   app.get("/api/coviddata", function(req, res) {
     db.Coviddata.findAll({}).then(function(dbCoviddata) {
+      console.log(dbCoviddata)
       res.json(dbCoviddata);
     });
   });
