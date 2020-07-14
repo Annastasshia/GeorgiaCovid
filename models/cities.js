@@ -1,15 +1,13 @@
-// Needs updating********************************
-
 module.exports = function(sequelize, DataTypes) {
-    var City = sequelize.define("City", {
+    var Cities = sequelize.define("Cities", {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
       cId: {
-        type: DataTypes.int,
+        type: DataTypes.INTEGER,
       }
     });
-    return City;
+    return Cities;
   };
   

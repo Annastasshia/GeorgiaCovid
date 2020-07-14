@@ -1,15 +1,13 @@
-// Needs updating********************************
-
 module.exports = function(sequelize, DataTypes) {
-    var County = sequelize.define("County", {
+    const Counties = sequelize.define("Counties", {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
       cdId: {
-        type: DataTypes.int,
+        type: DataTypes.INTEGER,
       }
     });
-    return County;
+    return Counties;
   };
   

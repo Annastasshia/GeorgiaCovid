@@ -1,5 +1,3 @@
-// basic index.js  should not need updating********************************
-
 "use strict";
 
 var fs = require("fs");
@@ -21,10 +19,10 @@ fs
   .filter(function(file) {
     return (file.indexOf(".") !== 0) && (file !== basename) && (file.slice(-3) === ".js");
   })
-  .forEach(function(file) {
-    var model = sequelize["import"](path.join(__dirname, file));
-    db[model.name] = model;
-  });
+.forEach(function(file) {
+  var model = sequelize.import(path.join(__dirname, file));
+  db[model.name] = model;
+ });
 
 Object.keys(db).forEach(function(modelName) {
   if (db[modelName].associate) {
@@ -34,5 +32,28 @@ Object.keys(db).forEach(function(modelName) {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+// Incudes
+db.Owners = require('../models/owners.js')(sequelize, Sequelize);
+db.Businesses = require('../models/businesses.js')(sequelize, Sequelize);
+db.Cities = require('../models/cities.js')(sequelize, Sequelize);
+db.Counties = require('../models/counties.js')(sequelize, Sequelize);
+db.Coviddata = require('../models/coviddata.js')(sequelize, Sequelize);
+db.Restrictions = require('../models/restrictions.js')(sequelize, Sequelize);
+db.Changes = require('../models/changes.js')(sequelize, Sequelize);
+db.Days = require('../models/days.js')(sequelize, Sequelize);
+
+// Relations
+db.Owners.hasMany(db.Businesses);
+db.Businesses.belongsTo(db.Owners);
+
+
+db.Businesses.hasMany(db.Changes);
+db.Changes.belongsTo(db.Businesses);
+db.Changes.hasOne(db.Restrictions);
+db.Restrictions.belongsTo(db.Changes);
+db.Restrictions.hasOne(db.Days);
+db.Days.belongsTo(db.Restrictions);
+
 
 module.exports = db;
