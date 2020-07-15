@@ -35,3 +35,9 @@ h3{
     line-height: 4px;
     text-align: left;
 }
+
+#logo{
+    width: 25%;
+    height: auto;
+    margin-left: 20px;
+}
