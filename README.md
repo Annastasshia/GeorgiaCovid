@@ -33,7 +33,10 @@ So that I can garner business.
 
 - UIKit CSS Framework
 - Google API
-- 
+- Path
+- Handshake
+- fs
+- eslint
 - Handlebars
 - D3
 - MYSQL 
@@ -49,6 +52,6 @@ So that I can garner business.
 
 👤 **Annastasshia Ames |  Kelli Jarell |  Jon Kesler**
 
-* Website: darkorin.github.io
+* Website:  https://annastasshia.github.io/GeorgiaCovid/
 * Repository: https://github.com/Annastasshia/GeorgiaCovid
 * Github: [@Annastasshia](https://github.com/Annastasshia)
