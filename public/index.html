@@ -17,6 +17,7 @@
 
     <!--d3-->
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
 
 
 </head>
@@ -25,7 +26,7 @@
     <nav class="uk-navbar-container uk-margin uk-sticky" uk-navbar>
         <div class="uk-navbar-left">
 
-            <a class="uk-navbar-item uk-logo" href="#">Logo</a>
+            <a href="#"><img src="./images/logo.png" id="logo"></a>
 
             <ul class="uk-navbar-nav">
                 <li>
@@ -57,10 +58,20 @@
         </div>
     </nav>
 
-<!--Map Thing-->
-<div class="flourish-embed flourish-map" data-src="visualisation/3110321" data-url="https://flo.uri.sh/visualisation/3110321/embed"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+    <!--Map Thing-->
+    <div uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 500">
+        <h2 style="text-align: center;">Georgia Covid Tracker</h2>
+        <div uk-scrollspy-class="uk-animation-slide-top">
+            <div id="map"></div>
+        </div>
+    
+    </div>
 
 </body>
 <!--Personal Javascript-->
-<script src = "js/script.js"></script>
+<script src="js/script.js"></script>
+
+<!--Map JavaScript-->
+<script src="js/map.js"></script>
+
 </html>

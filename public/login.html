@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css" />
+
+    <!--Personal CSS-->
+    <link rel="stylesheet" src="/public/css/dash-style.css">
+
+    <!--Personal JS-->
+    <link rel="script" src="public/js/script.js">
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit-icons.min.js"></script>
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="uk-flex uk-flex-center uk-flex-middle uk-background-muted uk-height-viewport">
+        <div class="uk-position-bottom-center uk-position-small uk-visible@m">
+            <span class="uk-text-small uk-text-muted">© 2020 Copurright - Georgia Covid Website</span>
+        </div>
+        <div class="uk-width-medium uk-padding-small">
+            <form>
+                <fieldset class="uk-fieldset">
+                    <legend class="uk-legend">Login</legend>
+                    <div class="uk-margin">
+                        <div class="uk-inline uk-width-1-1">
+                            <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: user"></span>
+                            <input class="uk-input uk-form-large" required placeholder="email" type="text">
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <div class="uk-inline uk-width-1-1">
+                            <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                            <input class="uk-input uk-form-large" required placeholder="Password" type="password">
+                        </div>
+                    </div>
+                    
+                    <div class="uk-margin">
+                        <label><input class="uk-checkbox" type="checkbox" checked> Remember Me</label>
+                    </div>
+                    <div class="uk-margin">
+                        <button type="submit" class="uk-button uk-button-primary uk-button-primary uk-button-large uk-width-1-1">LOG IN</button>
+                    </div>
+                </fieldset>
+            </form>
+            <div>
+                <div class="uk-text-center">
+                    <a class="uk-link-reset uk-text-small" uk-toggle="target: #recover;animation: uk-animation-slide-top-small">Forgot your password?</a>
+                </div>
+                <div class="uk-margin-small-top" id="recover" hidden>
+                    <form>
+                        
+                        <div class="uk-margin-small">
+                            <div class="uk-inline uk-width-1-1">
+                                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"></span>
+                                <input class="uk-input" placeholder="E-mail" required type="text">
+                            </div>
+                        </div>
+                        
+                        <div class="uk-margin-small">
+                            <button type="submit" class="uk-button uk-button-primary uk-button-primary uk-width-1-1">SEND PASSWORD</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
