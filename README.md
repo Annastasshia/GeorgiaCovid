@@ -33,7 +33,9 @@ So that I can garner business.
 
 - UIKit CSS Framework
 - Google API
-- Handlebars 
+- 
+- Handlebars
+- D3
 - MYSQL 
 - Node
 - Heroku 
