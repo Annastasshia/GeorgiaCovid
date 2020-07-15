@@ -50,10 +50,10 @@ db.Businesses.belongsTo(db.Owners);
 
 db.Businesses.hasMany(db.Changes);
 db.Changes.belongsTo(db.Businesses);
-db.Changes.hasOne(db.Restrictions);
-db.Restrictions.belongsTo(db.Changes);
-db.Restrictions.hasOne(db.Days);
-db.Days.belongsTo(db.Restrictions);
+db.Businesses.hasOne(db.Restrictions);
+db.Restrictions.belongsTo(db.Businesses);
+db.Businesses.hasOne(db.Days);
+db.Days.belongsTo(db.Businesses);
 
 
 module.exports = db;

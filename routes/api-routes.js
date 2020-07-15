@@ -1,21 +1,37 @@
 const db = require("../models");
-const { Owners } = require("../models");
-const changes = require("../models/changes");
+const { Owners, Businesses, Changes, Restrictions, Days } = require("../models");
+
+const { response } = require("express");
 const businesses = require("../models/businesses");
+
+Businesses.hasMany(Changes, {
+  foreignKey: "BusinessId"
+});
+Changes.belongsTo(Businesses, {
+  foreignKey: "BusinessId"
+});
+
+Businesses.hasMany(Restrictions, {
+  foreignKey: "BusinessId"
+});
+Restrictions.belongsTo(Businesses, {
+  foreignKey: "BusinessId"
+});
+
+Businesses.hasMany(Days, {
+  foreignKey: "BusinessId"
+});
+Days.belongsTo(Businesses, {
+  foreignKey: "BusinessId"
+});
 
 module.exports = function(app) {
 
   // *********************************************************
   // GET
   // *********************************************************
-  //   Ad d Kelli's code****************************************
-  app.get("/counties/:countyName", function(req, res) {
-    db.WhateverDB.findAll({where: {countyName: req.params.countyName}})
-      .then(dbResp => {
-        res.render("county", dbResp[0])
-      })
-  })
-  // Jon's code ***********************************************
+
+  
   app.get("/api/coviddata", function(req, res) {
     db.Coviddata.findAll({}).then(function(dbCoviddata) {
       console.log(dbCoviddata)
@@ -44,47 +60,22 @@ module.exports = function(app) {
     });
   });
 
-  // GET route for getting one owner
+  // GET route for getting one owner with all businesses
   app.get("/api/owners/:id", function(req, res) {
-    db.Post.findOne({
-      where: {
-        id: req.params.id
-      }
-    })
-      .then(function(dbOwners) {
-        res.json(dbOwners);
-      });
-  });
+    let { id } = req.params;
 
-  // GET route for getting all of the owners data with business data to be used client side
-  app.get("/api/owners/business", (req, res) => {
-    db.Owners.findAll({
+    Owners.findByPk(id, {
       include: [
-        {
-          model: db.Businesses
-        }
-      ]
-    }).then(dbOwners => {
-      const resObj = dbOwners.map(owner => {
-        return Object.assign(
-          {},
-          {
-            name: owner.name,
-            email: owner.email,
-            businesses: owner.Businesses.map(businesses => {
-              return Object.assign(
-                {},
-                {
-                  b_name: businesses.name,
-                  b_add1: businesses.add1
-                }
-              )
-            })
-          }
-        )
-      })
-      res.json(resObj)
-    });
+        {model: Businesses,
+          require: true
+        }]
+    }).then((owners) => {
+      if (owners) {
+        res.json(owners);
+      } else {
+        res.status(404).send();
+      }
+      });
   });
   
   // GET route for getting all of the business data to be used client side
@@ -94,84 +85,68 @@ module.exports = function(app) {
     });
   });
 
-  // GET route for getting one business
+  // ** NOT WORKING GET route for getting one business
   app.get("/api/businesses/:id", function(req, res) {
-    db.Post.findOne({
-      where: {
-        id: req.params.id
+    let { id } = req.params;
+
+    Businesses.findByPk(id, {
+    }).then((businesses) => {
+      if (businesses) {
+        res.json(businesses);
+      } else {
+        res.status(404).send();
       }
-    })
-      .then(function(dbBusinessess) {
-        res.json(dbBusinesses);
       });
   });
 
-  // GET route for getting all of the business data with associated data to be used client side
-  app.get("/api/businesses/info", (req, res) => {
-    db.Businesses.findAll({
+  // GET route for getting one businesses Info
+  app.get("/api/businesses/info/:id", function(req, res) {
+    let { id } = req.params;
+
+    Businesses.findByPk(id, {
       include: [
+        {model: Changes,
+          require: true
+        },
         {
-          model: db.Changes,
-            include: [
-              {
-                model: db.Restrictions
-              }
-            ]
-        }
-      ]
-    }).then(dbBusinesses => {
-      const resObj = dbBusinesses.map(businesses => {
-        return Object.assign(
-          {},
-          {
-            b_name: businesses.name,
-            b_email: businesses.email,
-            change: businesses.Changes.map(changes => {
-              return Object.assign(
-                {},
-                {
-                  // mask: restriction.mask,
-                  // distancing: restriction.distancing,
-                  // gloves: restriction.gloves,
-                  // hWashing: restriction.hWashing,
-                  // temp: restriction.temp,
-                  // cOut: restriction.cOut,
-                  // dThru: restriction.dThru,
-                  // lServices: restriction.lServices
-                  lStaff: changes.lStaff,
-                  closed: changes.closed,
-                  comments: changes.comments,
-                  restrictions: changes.Restrictions.map(restrictions => {
-                    return Object.assign(
-                      {},
-                      {
-                        mask: restrictions.mask,
-                        distancing: restrictions.distancing,
-                        gloves: restrictions.gloves,
-                        hWashing: restrictions.hWashing,
-                        temp: restrictions.temp,
-                        cOut: restrictions.cOut,
-                        dThru: restrictions.dThru,
-                        lServices: restrictions.lServices
-                      }
-                    )
-                  })
-                }
-              )
-            })
-          }
-        )
+        model: Restrictions
+        },
+      {
+        model: Days
+      }]
+    }).then((businesses) => {
+      if (businesses) {
+        res.json(businesses);
+      } else {
+        res.status(404).send();
+      }
       });
-      res.json(resObj)
-    });
   });
+
+  // GET route for getting one businesses Info
+  app.get("/api/businessesbyc/:object_query", async (req, res) => {
+    let object_query = req.params.object_query;
+    db.Businesses.findAll({
+      where: JSON.parse(object_query),
+      // order: ["Businesses.name", "DESC"],
+      }).then(Businesses => {
+          if (!Businesses.length) {
+            return res.status(404).send();
+      }
+        res.send({
+          Businesses
+        });
+      });
+    });
+
+ 
+   
 
   // *********************************************************
   // POSTS 
   // *********************************************************
     // POST route for saving a new Owner
     app.post("/api/owners", function(req, res) {
-      console.log(req.body)
       db.Owners.create({
         name: req.body.name,
         email: req.body.email,
@@ -190,26 +165,78 @@ module.exports = function(app) {
       add1: req.body.add1,
       add2: req.body.add2,
       city: req.body.city,
+      county: req.body.county,
       st: req.body.st,
       zip: req.body.zip,
       phone: req.body.phone,
       website: req.body.website,
       email: req.body.email,
-      oId: req.body.OwnerId
+      OwnerId: req.body.OwnerId
     }).then(function(dbBusinesses) {
       res.json(dbBusinesses);
     });
   });
 
+  //POST to all tables by business ID
+  app.post("/api/businesses/info/", function(req, res) {;
+    console.log(req.body)
+    db.Businesses.create({
+      name: req.body.name,
+      add1: req.body.add1,
+      add2: req.body.add2,
+      city: req.body.city,
+      county: req.body.county,
+      st: req.body.st,
+      zip: req.body.zip,
+      phone: req.body.phone,
+      website: req.body.website,
+      email: req.body.email,
+      OwnerId: req.body.OwnerId
+    }).then(dbBusinesses => {
+      console.log(dbBusinesses.id)
+        db.Changes.create({
+        lStaff: req.body.Changes.lStaff,
+        closed: req.body.Changes.closed,
+        reopens: req.body.Changes.reopens,
+        mAllowed: req.body.Changes.mAllowed,
+        comments: req.body.Changes.comments,
+        BusinessId: dbBusinesses.id
+      }).then(dbChanges => {
+          db.Restrictions.create({
+          mask: req.body.Restriction.mask,
+          distancing: req.body.Restriction.distancing,
+          gloves: req.body.Restriction.gloves,
+          hWashing: req.body.Restriction.hWashing,
+          temp: req.body.Restriction.temp,
+          cOut: req.body.Restriction.cOut,
+          dThru: req.body.Restriction.dThru,
+          lServices: req.body.Restriction.lServices,
+          pSanitized: req.body.Restriction.pSanitized,
+          tested: req.body.Restriction.tested,
+          BusinessId: dbBusinesses.id
+        }).then(dbRestrctions => {
+            db.Days.create({
+            day: req.body.Day.day,
+            open: req.body.Day.open,
+            close: req.body.Day.close,
+            BusinessId: dbBusinesses.id
+            }).then(function(dbDays) {
+              res.json(dbDays);
+            });
+          })
+        })
+      })
+    })
+
   // POST route for saving changes Info
   app.post("/api/changes", function(req, res) {
       db.Changes.create({
-        Staff: req.body.lStaff,
+        lStaff: req.body.lStaff,
         closed: req.body.closed,
         reopens: req.body.reopens,
         allowed: req.body.allowed,
         comments: req.body.comments,
-        bId: req.body.BusinessId
+        BusinessId: req.body.BusinessId
       }).then(function(dbChanges) {
         res.json(dbChanges);
       });
@@ -230,17 +257,17 @@ module.exports = function(app) {
     // POST route for saving restrictions Info
     app.post("/api/restrictions", function(req, res) {
       db.Restrictions.create({
-        mask: restrictions.mask,
-        distancing: restrictions.distancing,
-        gloves: restrictions.gloves,
-        hWashing: restrictions.hWashing,
-        temp: restrictions.temp,
-        cOut: restrictions.cOut,
-        dThru: restrictions.dThru,
-        services: restrictions.lServices,
-        sanitized: restrictions.pSanitized,
-        tested: restrictions.tested,
-        change: restrictions.ChangeId
+        mask: req.body.mask,
+        distancing: req.body.distancing,
+        gloves: req.body.gloves,
+        hWashing: req.body.hWashing,
+        temp: req.body.temp,
+        cOut: req.body.cOut,
+        dThru: req.body.dThru,
+        services: req.body.lServices,
+        sanitized: req.body.pSanitized,
+        tested: req.body.tested,
+        change: req.body.ChangeId
       }).then(function(dbRestrictions) {
         res.json(dbRestrictions);
       });
@@ -261,7 +288,6 @@ module.exports = function(app) {
         res.json(dbOwners);
       });
   });
-
 
   // UPDATE for business info
   app.put("/api/businesses", function(req, res) {
@@ -315,27 +341,4 @@ module.exports = function(app) {
       });
   });
 
-
 };
-
-
-
-
-  // *********************************************************
-  // DELETE
-  // *********************************************************
-  // DELETE route for deleting todos. We can get the id of the todo to be deleted from
-  // req.params.id
-//   app.delete("/api/todos/:id", function(req, res) {
-    // We just have to specify which todo we want to destroy with "where"
-    // db.Todo.destroy({
-//       where: {
-//         id: req.params.id
-//       }
-//     }).then(function(dbTodo) {
-//       res.json(dbTodo);
-//     });
-
-//   });
-
-

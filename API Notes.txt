@@ -1,0 +1,119 @@
+API's
+
+GET(33)		/api/coviddata		- all coviddata - used for map	**Id and county name match counties table.
+GET(40)		/api/counties		- all county data		**cdId is id from coviddata table.
+GET(47)		/api/cities		- all city data			**cId is id from counties table.
+GET(54)		/api/owners		- all owners
+GET(61)		/api/owners/:id		- owner by req.params.id with all of their businesses
+GET(73)		/api/owners/business	- all owners and their bussinesses
+GET(79)		/api/businesses		- all businesses
+GET(86)		/api/businesses/:id	- business by id.  business data only
+GET(100)	/api/businesses/info/:id		- business with all restrictions, changes, and days by req.params.id
+GET(125)	/api/businessesbyc/{"county": "Chatham"}	- businesses by county name ***not ORDERING - just errrors.
+
+
+POST(147)	/api/owners		-create new owner
+***WORKING POST REQUEST***********************************************************
+{
+"name": "Bob",
+"email": "jon@jon.com",
+"password": "1234"
+}
+
+POST(159)	/api/businesses		-create new business only  *Ownerid required
+***WORKING POST REQUEST***********************************************************
+{
+    "name": "Jon Books",
+    "add1": "123",
+    "add2": "234",
+    "city": "savannah",
+    "st": "GA",
+    "zip": "12345",
+    "phone": "1234567890",
+    "website": "www.jon.com",
+    "email": "jon@jon.com",
+    "OwnersId": "2"
+}
+
+POST(179)	/api/businesses/info/	- create bussiness and all restrictions at once.  Requires OwnerId from Owners table.
+***WORKING POST REQUEST with datatypes****************************************************
+{
+"name": "JK",
+"add1": "123",
+"add2": "56ed",
+"city": "Sav",
+"county": "Chatham",
+"st": "GA",
+"zip": "12345",		***Int
+"phone": "123485",	***Int
+"website": "j.com",
+"email": "j@j.com",
+"OwnerId": "1",		***Pull after owner is created.
+"Changes":
+    {
+    "lStaff": "3",	***number of staff allowed
+    "closed": "false",	***true or false
+    "reopens": "01/01/20",	***date format
+    "mAllowed": "35",		***number allowed inside at one time
+    "comments": "test.coktje.docj",  ***varchar(255)
+    "BusinessId": "2"		***automatically grabbed when business is created
+    },
+"Restriction": {
+    "mask": "false",	***all True/False
+    "distancing": "false",
+    "gloves": "false",
+    "hWashing": "false",
+    "temp": "false",
+    "cOut": "false",
+    "dThru": "false",
+    "lServices": "false",
+    "pSanitized": "false",
+    "tested": "false",
+    "BusinessId": "2"		***automatically grabbed when business is created
+},
+"Day": {
+    "day": "Monday",		***varchar(255)
+    "open": "10",		***Int - time opening
+    "close": "10",		***Int - time closing
+    "BusinessId": "2"		***automatically grabbed when business is created
+}
+}
+
+POST(230)	/api/changes	- create just changes entry in table  Requires BusinessId from Business table.
+***WORKING POST REQUEST with datatypes****************************************************
+{
+    "lStaff": "3",
+    "closed": "false",
+    "reopens": "01/01/20",
+    "mAllowed": "35",
+    "comments": "test.coktje.docj",
+    "BusinessId": "2"
+}
+
+
+POST(244)	/api/days	- create just days entry in table  Requires BusinessId from Business table.
+***WORKING POST REQUEST with datatypes****************************************************
+ {
+    "day": "Monday",
+    "open": "10",
+    "close": "10",
+    "BusinessId": "2"
+}
+
+POST(256)	/api/restrictions	- create just restrictions entry in table  Requires BusinessId from Business table.
+***WORKING POST REQUEST with datatypes****************************************************
+{
+    "mask": "false",
+    "distancing": "false",
+    "gloves": "false",
+    "hWashing": "false",
+    "temp": "false",
+    "cOut": "false",
+    "dThru": "false",
+    "lServices": "false",
+    "pSanitized": "false",
+    "tested": "false",
+    "BusinessId": "2"
+}
+
+***NO UPDATES WORKING****
