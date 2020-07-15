@@ -10,7 +10,7 @@ module.exports = function(app) {
   // *********************************************************
   //   Ad d Kelli's code****************************************
   app.get("/counties/:countyName", function(req, res) {
-    db.WhateverDB.findAll({where: {countyId: req.params.countyName}})
+    db.WhateverDB.findAll({where: {countyName: req.params.countyName}})
       .then(dbResp => {
         res.render("county", dbResp[0])
       })
