@@ -1,8 +1,9 @@
 const db = require("../models");
-const { Owners, Businesses, Changes, Restrictions, Days } = require("../models");
+const { Owners, Businesses, Changes, Restrictions, Days, sequelize } = require("../models");
 
 const { response } = require("express");
 const businesses = require("../models/businesses");
+const coviddata = require("../models/coviddata");
 
 Businesses.hasMany(Changes, {
   foreignKey: "BusinessId"
@@ -33,6 +34,22 @@ module.exports = function(app) {
 
   app.get("/api/coviddata", function(req, res) {
     db.Coviddata.findAll({}).then(function(dbCoviddata) {
+      res.json(dbCoviddata)
+    });
+  });
+
+
+  // Covid data Totals
+  app.get("/api/coviddatatotals", function(req, res) {
+    db.Coviddata.findAll({
+      attributes: [
+        [sequelize.fn('SUM', sequelize.col('cases')), 'total_cases'],
+        [sequelize.fn('SUM', sequelize.col('deaths')), 'total_deaths'],
+        [sequelize.fn('SUM', sequelize.col('cRate')), 'total_cRate'],
+        [sequelize.fn('SUM', sequelize.col('hospital')), 'total_hospital'],
+      ],
+    }).then(function(dbCoviddata) {
+      // })
       res.json(dbCoviddata);
     });
   });
@@ -126,7 +143,7 @@ module.exports = function(app) {
     let object_query = req.params.object_query;
     db.Businesses.findAll({
       where: JSON.parse(object_query),
-      // order: ["Businesses.name", "DESC"],
+      // order: [["Businesses.name", "DESC"]]
       }).then(Businesses => {
           if (!Businesses.length) {
             return res.status(404).send();
@@ -338,5 +355,4 @@ module.exports = function(app) {
         res.json(dbRestrictions);
       });
   });
-
 };
