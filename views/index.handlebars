@@ -1,10 +1,69 @@
- <div uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 500">
-        <h2 style="text-align: center;">Georgia Covid Tracker</h2>
-        <div uk-scrollspy-class="uk-animation-slide-top">
-            <div id="map"></div>
+<div uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 500">
+    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-1@s uk-margin">
+        <div class="uk-card uk-card-body">
+            <h1 class="uk-card-title"
+                style="text-align: center; color:white; background-color: #80ced6; padding:20px; "> Georgia Covid-19
+                Tracker
+            </h1>
         </div>
-    
     </div>
 
-<!--Map JavaScript-->
-<script src="js/map.js"></script>
+
+    <div>
+        <div uk-scrollspy-class="uk-animation-slide-right" style="float:left">
+                        <div id="map"></div>
+                    </div>
+        <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-1@s uk-margin" style="height:fit-content;" uk-grid>
+                
+            <div class="uk-card-body">
+                <div>
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <h3 class="uk-card-title"
+                            style="text-align: center; color:white; background-color: #80ced6; padding:20px;"> Current
+                            Statewide Data
+                            <hr>
+                            <p>Total Cases: {{cases}}</p>
+                            <p>Deaths: {{deaths}}</p>
+                            <p>Rate: {{cRate}}</p>
+                            <p>hospitalizations: {{hospital}}</p>
+                            <p>Select on your county to find local Covid-19 data, county mandates, and store
+                                information.</p>
+                    </div>
+                </div>
+                </h3>
+                
+            </div>
+
+        </div>
+        {{!-- <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin"> 
+        <div class="uk-card-body">
+        <div><h2 class="uk-card-title" style="text-align: center; color:white; background-color: #80ced6; padding:20px; "> Current Statewide Data
+            <hr>
+            <p class="uk-card-body" style="text-align:center;">Cases: {{cases}}</p>
+            <p class="uk-card-body" style="text-align:center;">Select on your county to find local Covid-19 data, county mandates, and store information.</p>
+        </h2>
+        </div>
+    </div>
+    <div uk-scrollspy-class="uk-animation-slide-right uk-card-media-right">
+            <div id="map"></div>
+        </div>
+    </div> --}}
+
+
+
+
+
+        <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-1@s uk-margin">
+            <div class="uk-card uk-card-body">
+                <h2 class="uk-card-title"
+                    style="text-align: center; color:white; background-color: #80ced6; padding:20px; ">
+                    Worldwide Data
+                </h2>
+            </div>
+            <iframe
+                src="https://ourworldindata.org/grapher/covid-confirmed-cases-since-100th-case?country=ITA~NOR~KOR~ESP~TWN~GBR~USA"
+                loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+        </div>
+
+        <!--Map JavaScript-->
+        <script src="js/map.js"></script>

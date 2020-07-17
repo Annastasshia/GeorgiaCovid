@@ -1,17 +1,84 @@
 <body>
-    <div class="uk-container">
-        <div uk-height-viewport>
-          <div class="uk-child-width-1-2@s uk-height-1-1 uk-grid-match uk-grid-collapse uk-grid-divider" uk-grid>
-            <div class="uk-flex-column">
-              <h4 class="uk-flex-none uk-text-center" style="padding: 20px;">OPEN</h4>
+  <div class="uk-container">
+
+    <button id="addStore" uk-toggle="target: #my-id" type="button"></button>
+
+   {{!-- FORM MODEL --}}
+    <div id="my-id" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">Add Your Store!</h2>
+        <form>
+          <fieldset class="uk-fieldset">
+            <div class="uk-margin">
+              <input id="storeName" class="uk-input" type="text" placeholder="Store Name">
+            </div>
+            <div class="uk-margin">
+              <input id="city" class="uk-input" type="text" placeholder="city">
+            </div>
+            <div class="uk-margin">
+              <input id="street" class="uk-input" type="text" placeholder="Street Address">
+            </div>
+            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+              <h5>Do you require masks?</h5>
+              <label><input id="yesMask" class="uk-radio" type="radio" name="radio2" checked> Yes</label>
+              <label><input id="noMask" class="uk-radio" type="radio" name="radio2"> No</label>
+            </div>
+            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+              <h5>Do you require social distancing?</h5>
+              <label><input id="yesDistance" class="uk-radio" type="radio" name="radio2" checked> Yes</label>
+              <label><input id="noDistance" class="uk-radio" type="radio" name="radio2"> No</label>
+            </div>
+            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+              <h5>Do you require gloves?</h5>
+              <label><input id="yesGloves" class="uk-radio" type="radio" name="radio2" checked> Yes</label>
+              <label><input id="noGloves" class="uk-radio" type="radio" name="radio2"> No</label>
+            </div>
+            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+              <h5>Do you require guests to wash hands upon entering?</h5>
+              <label><input id="yesHands" class="uk-radio" type="radio" name="radio2" checked> Yes</label>
+              <label><input id="noHands" class="uk-radio" type="radio" name="radio2"> No</label>
+            </div>
+            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+              <h5>Do you require temperture checks upon entry?</h5>
+              <label><input id="yesTemp" class="uk-radio" type="radio" name="radio2" checked> Yes</label>
+              <label><input id="noTemp" class="uk-radio" type="radio" name="radio2"> No</label>
+            </div>
+            <h5>Check the services this store currently provides: </h5>
+            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+            <label><input id="dThru" class="uk-checkbox" type="checkbox" checked> Drive Thru</label>
+            <label><input id="cOut" class="uk-checkbox" type="checkbox"> Carry Out</label>
+            <p class="uk-text-right">
+              <label><input id="pSanitized" class="uk-checkbox" type="checkbox"> Professional Sanitation of Store</label>
+              
+              <label><input id="tested" class="uk-checkbox" type="checkbox"> Employees are Covid-19 Tested</label>
+            <p class="uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button" >Cancel</button>
+            <button id= "saveButton" class="uk-button uk-button-primary" type="button">Save</button>
+        </p>
+            
+          </fieldset>
+        </form>
+      </div>
+    </div>
+
+
+
+{{!-- OPEN STORES --}}
+    <div uk-height-viewport>
+      <div class="uk-child-width-1-2@s uk-height-1-1 uk-grid-match uk-grid-collapse uk-grid-divider" uk-grid>
+
+        <div class="uk-flex-column">
+          <h3 class="uk-card-title" style="text-align: center; color:white; background-color: #80ced6; padding:20px;"> OPEN STORES </h3>
               <div class="uk-flex-1" uk-sortable="group: sortable-group">
                 <div class="uk-margin">
                   <div class="uk-card uk-card-hover uk-card-default uk-card-small">
                     <div class="uk-card-body">
-                      <h3 class="uk-card-title uk-margin-remove">Store Name <small class="uk-text-muted uk-float-right">Date Updated:</small></h3>
+                      <h3 class="uk-card-title uk-margin-remove"> <small class="uk-text-muted uk-float-right">Date
+                          Updated:</small></h3>
                       <p class="uk-text-meta uk-margin-remove">Lorem ipsum dolor sit amet</p>
                       <ul class="user-group">
-                        <li><img class="uk-border-circle uk-box-shadow-small uk-box-shadow-hover-medium" width="40" height="40" src="https://getuikit.com/docs/images/avatar.jpg"></li>
+                        <li><img class="uk-border-circle uk-box-shadow-small uk-box-shadow-hover-medium" width="40"
+                            height="40" src="https://getuikit.com/docs/images/avatar.jpg"></li>
                       </ul>
                     </div>
                     <div class="uk-card-footer uk-background-muted">
@@ -22,11 +89,12 @@
                 <div class="uk-margin">
                   <div class="uk-card uk-card-hover uk-card-default uk-card-small">
                     <div class="uk-card-body">
-                      <h3 class="uk-card-title uk-margin-remove">Shop 
-                          Name <small class="uk-text-muted uk-float-right">Date Updated:</small></h3>
+                      <h3 class="uk-card-title uk-margin-remove">Shop
+                        Name <small class="uk-text-muted uk-float-right">Date Updated:</small></h3>
                       <p class="uk-text-meta uk-margin-remove">Lorem ipsum dolor sit amet</p>
                       <ul class="user-group">
-                        <li><img class="uk-border-circle uk-box-shadow-small uk-box-shadow-hover-medium" width="40" height="40" src="https://getuikit.com/docs/images/avatar.jpg"></li>
+                        <li><img class="uk-border-circle uk-box-shadow-small uk-box-shadow-hover-medium" width="40"
+                            height="40" src="https://getuikit.com/docs/images/avatar.jpg"></li>
                       </ul>
                     </div>
                     <div class="uk-card-footer uk-background-muted">
@@ -35,41 +103,76 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="uk-flex-column">
-              <h4 class="uk-flex-none uk-text-center" style="padding: 20px;">CLOSED</h4>
-              <div class="uk-flex-1" uk-sortable="group: sortable-group">
-                <div class="uk-margin">
-                  <div class="uk-card uk-card-hover uk-card-default uk-card-small">
-                    <div class="uk-card-body">
-                      <h3 class="uk-card-title uk-margin-remove">Store Name<small class="uk-text-muted uk-float-right">Date Updated:</small></h3>
-                      <p class="uk-text-meta uk-margin-remove">Lorem ipsum dolor sit amet</p>
-                      <ul class="user-group">
-                        <li><img class="uk-border-circle uk-box-shadow-small uk-box-shadow-hover-medium" width="40" height="40" src="https://getuikit.com/docs/images/avatar.jpg"></li>
-                      </ul>
-                    </div>
-                    <div class="uk-card-footer uk-background-muted">
-                      <a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="icon: comments"></a>9
-                    </div>
-                  </div>
+        </div>
+
+
+
+{{!-- CLOSED STORES --}}
+        <div class="uk-flex-column">
+          <h3 class="uk-card-title" style="text-align: center; color:white; background-color: #80ced6; padding:20px;"> CLOSED STORES </h3>
+          <div class="uk-flex-1" uk-sortable="group: sortable-group">
+            <div class="uk-margin">
+              <div class="uk-card uk-card-hover uk-card-default uk-card-small">
+                <div class="uk-card-body">
+                  <h3 class="uk-card-title uk-margin-remove">Store Name<small class="uk-text-muted uk-float-right">Date
+                      Updated:</small></h3>
+                  <p class="uk-text-meta uk-margin-remove">Lorem ipsum dolor sit amet</p>
+                  <ul class="user-group">
+                    <li><img class="uk-border-circle uk-box-shadow-small uk-box-shadow-hover-medium" width="40"
+                        height="40" src="https://getuikit.com/docs/images/avatar.jpg"></li>
+                  </ul>
                 </div>
-                <div class="uk-margin">
-                  <div class="uk-card uk-card-hover uk-card-default uk-card-small">
-                    <div class="uk-card-body">
-                      <h3 class="uk-card-title uk-margin-remove"> Store Name <small class="uk-text-muted uk-float-right">Date Updated:</small></h3>
-                      <p class="uk-text-meta uk-margin-remove">Lorem ipsum dolor sit amet</p>
-                      <ul class="user-group">
-                        <li><img class="uk-border-circle uk-box-shadow-small uk-box-shadow-hover-medium" width="40" height="40" src="https://getuikit.com/docs/images/avatar.jpg"></li>
-                      </ul>
-                    </div>
-                    <div class="uk-card-footer uk-background-muted">
-                      <a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="icon: comments"></a>2
-                    </div>
-                  </div>
+                <div class="uk-card-footer uk-background-muted">
+                  <a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="icon: comments"></a>9
+                </div>
+              </div>
+            </div>
+            <div class="uk-margin">
+              <div class="uk-card uk-card-hover uk-card-default uk-card-small">
+                <div class="uk-card-body">
+                  <h3 class="uk-card-title uk-margin-remove"> Store Name <small
+                      class="uk-text-muted uk-float-right">Date Updated:</small></h3>
+                  <p class="uk-text-meta uk-margin-remove">Lorem ipsum dolor sit amet</p>
+                  <ul class="user-group">
+                    <li><img class="uk-border-circle uk-box-shadow-small uk-box-shadow-hover-medium" width="40"
+                        height="40" src="https://getuikit.com/docs/images/avatar.jpg"></li>
+                  </ul>
+                </div>
+                <div class="uk-card-footer uk-background-muted">
+                  <a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="icon: comments"></a>2
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
     </div>
-</body>
+  </div>
+
+
+{{!-- FORM JAVASCRIPT --}}
+
+  <script>
+    //!-- fill in rest of info then html populate to page --}}
+
+    $("#saveButton").on("click", function (event) {
+      event.preventDefault();
+      var storeName = $("#storeName").val().trim();
+      var reqBody = {
+        name: $("#storName").val().trim(),
+        add1: $("#add1").val().trim(),
+        add2: $("#addd2").val().trim(),
+
+        Owner: {
+          name: $("#ownerName").val().trim()
+        }
+      }
+
+      $.post("/api/businesses/info", reqBody)
+        .then(function (data) {
+          location.reload();
+          reqBody.val("");
+          // probably just clear all the input fields and close the modal
+        })
+    })
+  </script>

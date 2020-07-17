@@ -49,6 +49,15 @@ app.get('/counties/:countyName', (req, res) => {
   
 });
 
+app.post('/counties/:countyName', (req, res) => {
+  db.Coviddata.findOne({where: {cName: req.params.countyName}})
+    .then(function(dbData){
+      res.render("county", dbData.dataValues);
+    })
+  //Serves the body of the page aka "main.handlebars" to the container //aka "index.handlebars"
+  
+});
+
 
 // Routes
 // =============================================================

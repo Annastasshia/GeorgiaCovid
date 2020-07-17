@@ -7,29 +7,18 @@
                 <div class="uk-card-body">
                 <div>
                   <div class="uk-card uk-card-default uk-card-body">
-                    <h3 class="uk-card-title">County Name</h3>
-                    <p>{{cName}}</p>
+                    <h3 class="uk-card-title"
+                            style="text-align: center; color:white; background-color: #80ced6; padding:20px;"><strong>County:</strong> {{cName}} </h3>
+                    <p>Total Cases: {{cases}}</p>
+                    <p>Deaths: {{deaths}}</p>
+                    <p>Rate: {{cRate}}</p>
+                    <p>hospitalizations: {{hospital}}</p>
                   </div>
                 </div>
             </div>
-                <div class="uk-card-body">
-                <div>
-                  <div class="uk-card uk-card-default uk-card-body">
-                    <h3 class="uk-card-title">Cases</h3>
-                    <p>{{cases}}</p>
-                  </div>
-                </div>
-            </div>
-            <div class="uk-card-media-left uk-cover-container">
-                <img src="https://pngimg.com/uploads/cat/cat_PNG50485.png" alt="covid cell" uk-cover>
+            <div class="uk-card-media-right uk-cover-container">
+                <img src="https://www.lupusuk.org.uk/wp-content/uploads/2020/03/%E2%80%94Pngtree%E2%80%943d-cyan-corona-virus-element_5325427.png" alt="covid cell" uk-cover>
                 <canvas width="600" height="400"></canvas>
-              </div>
-            <div class="uk-card-body">
-              <div>
-                <div class="uk-card uk-card-default uk-card-large uk-card-body">
-                  <h3 class="uk-card-title">Param 3</h3>
-                  <p>Just tring to claw my way to the top.</p>
-                </div>
               </div>
             </div>
               </div>
@@ -38,9 +27,9 @@
           
         </div>
       </div>
-    </div>
     
-    {{> news}}
+    
+    {{> store}}
 
     
 </body>
