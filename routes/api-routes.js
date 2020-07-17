@@ -39,6 +39,22 @@ module.exports = function(app) {
     });
   });
 
+  // Covid Data Totals
+  app.get("/api/coviddatatotals", function(req, res) {
+    db.Coviddata.findAll({
+      attributes: [
+        [sequelize.fn('SUM', sequelize.col('cases')), 'total_cases'],
+        [sequelize.fn('SUM', sequelize.col('deaths')), 'total_deaths'],
+        [sequelize.fn('SUM', sequelize.col('cRate')), 'total_cRate'],
+        [sequelize.fn('SUM', sequelize.col('hospital')), 'total_hospital'],
+      ],
+    }).then(function(dbCoviddata) {
+      // })
+      
+      res.render(dbCoviddata.dataValues);
+    });
+  });
+
   // GET route for getting all of the County data
   app.get("/api/counties", function(req, res) {
     db.Counties.findAll({}).then(function(dbCounties) {
