@@ -32,6 +32,7 @@ module.exports = function(app) {
   // GET
   // *********************************************************
 
+  
   app.get("/api/coviddata", function(req, res) {
     db.Coviddata.findAll({}).then(function(dbCoviddata) {
       res.json(dbCoviddata)
@@ -51,6 +52,22 @@ module.exports = function(app) {
     }).then(function(dbCoviddata) {
       // })
       res.json(dbCoviddata);
+    });
+  });
+
+  // Covid Data Totals
+  app.get("/api/coviddatatotals", function(req, res) {
+    db.Coviddata.findAll({
+      attributes: [
+        [sequelize.fn('SUM', sequelize.col('cases')), 'total_cases'],
+        [sequelize.fn('SUM', sequelize.col('deaths')), 'total_deaths'],
+        [sequelize.fn('SUM', sequelize.col('cRate')), 'total_cRate'],
+        [sequelize.fn('SUM', sequelize.col('hospital')), 'total_hospital'],
+      ],
+    }).then(function(dbCoviddata) {
+      // })
+      
+      res.render(dbCoviddata.dataValues);
     });
   });
 

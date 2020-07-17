@@ -1,0 +1,36 @@
+<body>
+
+{{!-- Card for Covid API info --}}
+
+    <div>
+        <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                <div class="uk-card-body">
+                <div>
+                  <div class="uk-card uk-card-default uk-card-body">
+                    <h3 class="uk-card-title"
+                            style="text-align: center; color:white; background-color: #80ced6; padding:20px;"><strong>County:</strong> {{cName}} </h3>
+                    <p>Total Cases: {{cases}}</p>
+                    <p>Deaths: {{deaths}}</p>
+                    <p>Rate: {{cRate}}</p>
+                    <p>hospitalizations: {{hospital}}</p>
+                  </div>
+                </div>
+            </div>
+            <div class="uk-card-media-right uk-cover-container">
+                <img src="https://www.lupusuk.org.uk/wp-content/uploads/2020/03/%E2%80%94Pngtree%E2%80%943d-cyan-corona-virus-element_5325427.png" alt="covid cell" uk-cover>
+                <canvas width="600" height="400"></canvas>
+              </div>
+            </div>
+              </div>
+        
+          </div>
+          
+        </div>
+      </div>
+    
+    
+    {{> store}}
+
+    
+</body>
+
