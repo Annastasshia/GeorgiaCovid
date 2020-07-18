@@ -1,245 +1,241 @@
+<div class="uk-container">
+  <!--Store Open Modal-->
+  <button id="openStoreBtn" uk-toggle="target: #my-id" type="button" class="uk-button uk-button-primary"
+    style="margin-bottom: 25px;">Add That You're Open</button>
 
-  <div class="uk-container">
-<!--Store Open Modal-->
-    <button id="openStoreBtn" uk-toggle="target: #my-id" type="button" class="uk-button uk-button-primary" style="margin-bottom: 25px;">Add That You're Open</button>
-
-   {{!-- FORM MODAL --}}
-    <div id="my-id" uk-modal>
-      <div class="uk-modal-dialog uk-modal-body">
-        <h2 class="uk-modal-title">Add Your Store!</h2>
-        <form>
-          <fieldset class="uk-fieldset">
-            <div class="uk-margin">
-              <input id="storeName" class="uk-input" type="text" placeholder="Store Name">
-            </div>
-            <div class="uk-margin">
-              <input id="city" class="uk-input" type="text" placeholder="city">
-            </div>
-            <div class="uk-margin">
-              <input id="street" class="uk-input" type="text" placeholder="Street Address">
-            </div>
-            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-              <h5>Do you require masks?</h5>
-              <label><input id="yesMask" class="uk-radio" type="radio" name="maskRadio" checked> Yes</label>
-              <label><input id="noMask" class="uk-radio" type="radio" name="maskRadio"> No</label>
-            </div>
-            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-              <h5>Do you require social distancing?</h5>
-              <label><input id="yesDistance" class="uk-radio" type="radio" name="disRadio" checked> Yes</label>
-              <label><input id="noDistance" class="uk-radio" type="radio" name="disRadio"> No</label>
-            </div>
-            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-              <h5>Do you require gloves?</h5>
-              <label><input id="yesGloves" class="uk-radio" type="radio" name="glovesRadio" checked> Yes</label>
-              <label><input id="noGloves" class="uk-radio" type="radio" name="glovesRadio"> No</label>
-            </div>
-            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-              <h5>Do you require guests to wash hands upon entering?</h5>
-              <label><input id="yesHands" class="uk-radio" type="radio" name="washRadio" checked> Yes</label>
-              <label><input id="noHands" class="uk-radio" type="radio" name="washRadio"> No</label>
-            </div>
-            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-              <h5>Do you require temperture checks upon entry?</h5>
-              <label><input id="yesTemp" class="uk-radio" type="radio" name="tempRadio" checked> Yes</label>
-              <label><input id="noTemp" class="uk-radio" type="radio" name="tempRadio"> No</label>
-            </div>
-            <h5>Check the services this store currently provides: </h5>
-            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+  {{!-- FORM MODAL --}}
+  <div id="my-id" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+      <h2 class="uk-modal-title">Add Your Store!</h2>
+      <form>
+        <fieldset class="uk-fieldset">
+          <div class="uk-margin">
+            <input id="storeNameO" class="uk-input" type="text" placeholder="Store Name">
+          </div>
+          <div class="uk-margin">
+            <input id="cityO" class="uk-input" type="text" placeholder="city">
+          </div>
+          <div class="uk-margin">
+            <input id="streetO" class="uk-input" type="text" placeholder="Street Address">
+          </div>
+          <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+            <h5>Do you require masks?</h5>
+            <label><input id="yesMask" class="uk-radio" type="radio" name="maskRadio" checked> Yes</label>
+            <label><input id="noMask" class="uk-radio" type="radio" name="maskRadio"> No</label>
+          </div>
+          <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+            <h5>Do you require social distancing?</h5>
+            <label><input id="yesDistance" class="uk-radio" type="radio" name="disRadio" checked> Yes</label>
+            <label><input id="noDistance" class="uk-radio" type="radio" name="disRadio"> No</label>
+          </div>
+          <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+            <h5>Do you require gloves?</h5>
+            <label><input id="yesGloves" class="uk-radio" type="radio" name="glovesRadio" checked> Yes</label>
+            <label><input id="noGloves" class="uk-radio" type="radio" name="glovesRadio"> No</label>
+          </div>
+          <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+            <h5>Do you require guests to wash hands upon entering?</h5>
+            <label><input id="yesHands" class="uk-radio" type="radio" name="washRadio" checked> Yes</label>
+            <label><input id="noHands" class="uk-radio" type="radio" name="washRadio"> No</label>
+          </div>
+          <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+            <h5>Do you require temperture checks upon entry?</h5>
+            <label><input id="yesTemp" class="uk-radio" type="radio" name="tempRadio" checked> Yes</label>
+            <label><input id="noTemp" class="uk-radio" type="radio" name="tempRadio"> No</label>
+          </div>
+          <h5>Check the services this store currently provides: </h5>
+          <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
             <label><input id="dThru" class="uk-checkbox" type="checkbox" checked> Drive Thru</label>
             <label><input id="cOut" class="uk-checkbox" type="checkbox"> Carry Out</label>
             <p class="uk-text-right">
-              <label><input id="pSanitized" class="uk-checkbox" type="checkbox"> Professional Sanitation of Store</label>
-              
+              <label><input id="pSanitized" class="uk-checkbox" type="checkbox"> Professional Sanitation of
+                Store</label>
+
               <label><input id="tested" class="uk-checkbox" type="checkbox"> Employees are Covid-19 Tested</label>
             <p class="uk-text-right">
-            <button class="uk-button uk-button-default uk-modal-close" type="button" >Cancel</button>
-            <button id= "saveBtnOpen" class="uk-button uk-button-primary" type="button">Save</button>
-        </p>
-            
-          </fieldset>
-        </form>
-      </div>
+              <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+              <button id="saveBtnOpen" class="uk-button uk-button-primary" type="button">Save</button>
+            </p>
+
+        </fieldset>
+      </form>
     </div>
+  </div>
 
-    <!--Store Closed Modal-->
-    <button id="closedStoreBtn" uk-toggle="target: #my-id" type="button" class="uk-button uk-button-danger" style="margin-bottom: 25px;">Add That You're Closed</button>
+  <!--Store Closed Modal-->
+  <button id="closedStoreBtn" uk-toggle="target: #my-id" type="button" class="uk-button uk-button-danger"
+    style="margin-bottom: 25px;">Add That You're Closed</button>
 
-   {{!-- FORM MODAL --}}
-    <div id="my-id" uk-modal>
-      <div class="uk-modal-dialog uk-modal-body">
-        <h2 class="uk-modal-title">Add Your Store!</h2>
-        <form>
-          <fieldset class="uk-fieldset">
-            <div class="uk-margin">
-              <input id="storeName" class="uk-input" type="text" placeholder="Store Name">
-            </div>
-            <div class="uk-margin">
-              <input id="city" class="uk-input" type="text" placeholder="city">
-            </div>
-            <div class="uk-margin">
-              <input id="street" class="uk-input" type="text" placeholder="Street Address">
-            </div>
-            
-            <button class="uk-button uk-button-default uk-modal-close" type="button" >Cancel</button>
-            <button id= "saveBtnClosed" class="uk-button uk-button-primary" type="button">Save</button>
-        </p>
-            
-          </fieldset>
-        </form>
-      </div>
-    </div>
-
-
-
-{{!-- OPEN STORES --}}
-    <div uk-height-viewport>
-      <div class="uk-child-width-1-2@s uk-height-1-1 uk-grid-match uk-grid-collapse uk-grid-divider" uk-grid>
-
-               <div class="uk-flex-column">
-          <h3 class="uk-card-title" style="text-align: center; color:white; background-color: #80ced6; padding:20px;"> OPEN STORES </h3>
-          <div class="uk-flex-1" uk-sortable="group: sortable-group">
-            
-             <div class="uk-margin">
-              <div class="uk-card uk-card-hover uk-card-default uk-card-small">
-                <div class="uk-card-body">
-                  <h3 class="uk-card-title uk-margin-remove"> The Ordinary Pub 
-                    <small
-                      class="uk-text-muted uk-float-right">Savannah</small></h3>
-                      <small
-                      class="uk-text-muted uk-float-right">217 1/2 W Broughton St</small></h3>
-                  <p class="uk-text-meta uk-margin-remove"><strong>Are Masks Required?</strong></p>
-                  <p class="uk-text-meta uk-margin-remove">No</p>
-                  <p class="uk-text-meta uk-margin-remove"><strong>Social Distancing Required?</strong></p>
-                  <p class="uk-text-meta uk-margin-remove">Yes</p>
-                  <p class="uk-text-meta uk-margin-remove"><strong>Gloves Required?</strong></p>
-                  <p class="uk-text-meta uk-margin-remove">No</p>
-                  <p class="uk-text-meta uk-margin-remove"><strong>Do you require guests to wash hands upon entering?</strong></p>
-                  <p class="uk-text-meta uk-margin-remove">No</p>
-                  <p class="uk-text-meta uk-margin-remove"><strong>Do you require temperture checks upon entry?</strong></p>
-                  <p class="uk-text-meta uk-margin-remove">No</p>
-                  <p class="uk-text-meta uk-margin-remove"><strong>What services does this store currently provides?</strong></p>
-                  <p class="uk-text-meta uk-margin-remove">Carry-Out</p>
-                  <p class="uk-text-meta uk-margin-remove">Employees Tested</p>
-                </div>
-                <div class="uk-card-footer uk-background-muted">
-                  <a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="icon: comments"></a>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="uk-margin">
-              <div class="uk-card uk-card-hover uk-card-default uk-card-small">
-                <div class="uk-card-body">
-                  <h3 class="uk-card-title uk-margin-remove"> Foxy Loxy Cafe
-                    <small
-                      class="uk-text-muted uk-float-right">Savannah</small></h3>
-                      <small
-                      class="uk-text-muted uk-float-right">1919 Bull St</small></h3>
-                  <p class="uk-text-meta uk-margin-remove"><strong>Are Masks Required?</strong></p>
-                  <p class="uk-text-meta uk-margin-remove">Yes</p>
-                  <p class="uk-text-meta uk-margin-remove"><strong>Social Distancing Required?</strong></p>
-                  <p class="uk-text-meta uk-margin-remove">Yes</p>
-                  <p class="uk-text-meta uk-margin-remove"><strong>Gloves Required?</strong></p>
-                  <p class="uk-text-meta uk-margin-remove">No</p>
-                  <p class="uk-text-meta uk-margin-remove"><strong>Do you require guests to wash hands upon entering?</strong></p>
-                  <p class="uk-text-meta uk-margin-remove">No</p>
-                  <p class="uk-text-meta uk-margin-remove"><strong>Do you require temperture checks upon entry?</strong></p>
-                  <p class="uk-text-meta uk-margin-remove">No</p>
-                  <p class="uk-text-meta uk-margin-remove"><strong>What services does this store currently provides?</strong></p>
-                  <p class="uk-text-meta uk-margin-remove">Carry-Out</p>
-                </div>
-                <div class="uk-card-footer uk-background-muted">
-                  <a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="icon: comments"></a>
-                </div>
-              </div>
-            </div>
-
-
+  {{!-- FORM MODAL --}}
+  <div id="my-id" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+      <h2 class="uk-modal-title">Add Your Store!</h2>
+      <form>
+        <fieldset class="uk-fieldset">
+          <div class="uk-margin">
+            <input id="storeNameC" class="uk-input" type="text" placeholder="Store Name">
           </div>
+          <div class="uk-margin">
+            <input id="cityC" class="uk-input" type="text" placeholder="city">
+          </div>
+          <div class="uk-margin">
+            <input id="streetC" class="uk-input" type="text" placeholder="Street Address">
+          </div>
+
+          <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+          <button id="saveBtnClosed" class="uk-button uk-button-primary" type="button">Save</button>
+          </p>
+
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+
+
+  {{!-- OPEN STORES --}}
+  <div uk-height-viewport>
+    <div class="uk-child-width-1-2@s uk-height-1-1 uk-grid-match uk-grid-collapse uk-grid-divider" uk-grid>
+
+      <div class="uk-flex-column">
+        <h3 class="uk-card-title" style="text-align: center; color:white; background-color: #80ced6; padding:20px;">
+          OPEN STORES </h3>
+        <div class="uk-flex-1" uk-sortable="group: sortable-group">
+
+          <div class="uk-margin">
+            <div class="uk-card uk-card-hover uk-card-default uk-card-small">
+              <div class="uk-card-body">
+                <h3 class="uk-card-title uk-margin-remove"> The Ordinary Pub
+                  <small class="uk-text-muted uk-float-right">Savannah</small></h3>
+                <small class="uk-text-muted uk-float-right">217 1/2 W Broughton St</small></h3>
+                <p class="uk-text-meta uk-margin-remove"><strong>Are Masks Required?</strong></p>
+                <p class="uk-text-meta uk-margin-remove">No</p>
+                <p class="uk-text-meta uk-margin-remove"><strong>Social Distancing Required?</strong></p>
+                <p class="uk-text-meta uk-margin-remove">Yes</p>
+                <p class="uk-text-meta uk-margin-remove"><strong>Gloves Required?</strong></p>
+                <p class="uk-text-meta uk-margin-remove">No</p>
+                <p class="uk-text-meta uk-margin-remove"><strong>Do you require guests to wash hands upon
+                    entering?</strong></p>
+                <p class="uk-text-meta uk-margin-remove">No</p>
+                <p class="uk-text-meta uk-margin-remove"><strong>Do you require temperture checks upon entry?</strong>
+                </p>
+                <p class="uk-text-meta uk-margin-remove">No</p>
+                <p class="uk-text-meta uk-margin-remove"><strong>What services does this store currently
+                    provides?</strong></p>
+                <p class="uk-text-meta uk-margin-remove">Carry-Out</p>
+                <p class="uk-text-meta uk-margin-remove">Employees Tested</p>
+              </div>
+              <div class="uk-card-footer uk-background-muted">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="uk-margin">
+            <div class="uk-card uk-card-hover uk-card-default uk-card-small">
+              <div class="uk-card-body">
+                <h3 class="uk-card-title uk-margin-remove"> Foxy Loxy Cafe
+                  <small class="uk-text-muted uk-float-right">Savannah</small></h3>
+                <small class="uk-text-muted uk-float-right">1919 Bull St</small></h3>
+                <p class="uk-text-meta uk-margin-remove"><strong>Are Masks Required?</strong></p>
+                <p class="uk-text-meta uk-margin-remove">Yes</p>
+                <p class="uk-text-meta uk-margin-remove"><strong>Social Distancing Required?</strong></p>
+                <p class="uk-text-meta uk-margin-remove">Yes</p>
+                <p class="uk-text-meta uk-margin-remove"><strong>Gloves Required?</strong></p>
+                <p class="uk-text-meta uk-margin-remove">No</p>
+                <p class="uk-text-meta uk-margin-remove"><strong>Do you require guests to wash hands upon
+                    entering?</strong></p>
+                <p class="uk-text-meta uk-margin-remove">No</p>
+                <p class="uk-text-meta uk-margin-remove"><strong>Do you require temperture checks upon entry?</strong>
+                </p>
+                <p class="uk-text-meta uk-margin-remove">No</p>
+                <p class="uk-text-meta uk-margin-remove"><strong>What services does this store currently
+                    provides?</strong></p>
+                <p class="uk-text-meta uk-margin-remove">Carry-Out</p>
+              </div>
+              <div class="uk-card-footer uk-background-muted">
+              </div>
+            </div>
+          </div>
+
+          <div id="openStoreDiv"></div>
+
 
         </div>
 
+      </div>
 
 
-{{!-- CLOSED STORES --}}
-        <div class="uk-flex-column">
-          <h3 class="uk-card-title" style="text-align: center; color:white; background-color: #80ced6; padding:20px;"> CLOSED STORES </h3>
-          <div class="uk-flex-1" uk-sortable="group: sortable-group">
-            
-             <div class="uk-margin">
-              <div class="uk-card uk-card-hover uk-card-default uk-card-small">
-                <div class="uk-card-body">
-                  <h3 class="uk-card-title uk-margin-remove"> Joe's at the Jepson 
-                    <small
-                      class="uk-text-muted uk-float-right">Savannah</small></h3>
-                      <small
-                      class="uk-text-muted uk-float-right">5515 Waters Ave Jepson Meusem for the Arts</small></h3>
-                      <p class="uk-text-meta uk-margin-remove"><strong>This Store Is Closed</strong></p>
-                  
-                </div>
-                <div class="uk-card-footer uk-background-muted">
-                  <a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="icon: comments"></a>
-                </div>
+
+      {{!-- CLOSED STORES --}}
+      <div class="uk-flex-column">
+        <h3 class="uk-card-title" style="text-align: center; color:white; background-color: #80ced6; padding:20px;">
+          CLOSED STORES </h3>
+        <div class="uk-flex-1" uk-sortable="group: sortable-group">
+
+          <div class="uk-margin">
+            <div class="uk-card uk-card-hover uk-card-default uk-card-small">
+              <div class="uk-card-body">
+                <h3 class="uk-card-title uk-margin-remove"> Joe's at the Jepson
+                  <small class="uk-text-muted uk-float-right">Savannah</small></h3>
+                <small class="uk-text-muted uk-float-right">5515 Waters Ave Jepson Meusem for the Arts</small>
+                <p class="uk-text-meta uk-margin-remove"><strong>This Store Is Closed</strong></p>
+
+              </div>
+              <div class="uk-card-footer uk-background-muted">
               </div>
             </div>
+          </div>
 
 
-            <div class="uk-margin">
-              <div class="uk-card uk-card-hover uk-card-default uk-card-small">
-                <div class="uk-card-body">
-                  <h3 class="uk-card-title uk-margin-remove"> Narobia's Grits and Gravy 
-                    <small
-                      class="uk-text-muted uk-float-right">Savannah</small></h3>
-                      <small
-                      class="uk-text-muted uk-float-right">2019 Habersham St</small></h3>
-                       <p class="uk-text-meta uk-margin-remove"><strong>This Store Is Closed</strong></p>
-                  
-                </div>
-                <div class="uk-card-footer uk-background-muted">
-                  <a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="icon: comments"></a>
-                </div>
+          <div class="uk-margin">
+            <div class="uk-card uk-card-hover uk-card-default uk-card-small">
+              <div class="uk-card-body">
+                <h3 class="uk-card-title uk-margin-remove"> Narobia's Grits and Gravy
+                  <small class="uk-text-muted uk-float-right">Savannah</small></h3>
+                <small class="uk-text-muted uk-float-right">2019 Habersham St</small>
+                <p class="uk-text-meta uk-margin-remove"><strong>This Store Is Closed</strong></p>
+
+              </div>
+              <div class="uk-card-footer uk-background-muted">
               </div>
             </div>
+          </div>
 
-            <div class="uk-margin">
-              <div class="uk-card uk-card-hover uk-card-default uk-card-small">
-                <div class="uk-card-body">
-                  <h3 class="uk-card-title uk-margin-remove"> Mate Facto 
-                    <small
-                      class="uk-text-muted uk-float-right">Savannah</small></h3>
-                      <small
-                      class="uk-text-muted uk-float-right">401 E Hall St</small></h3>
-                       <p class="uk-text-meta uk-margin-remove"><strong>This Store Is Closed</strong></p>
-                  
-                </div>
-                <div class="uk-card-footer uk-background-muted">
-                  <a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="icon: comments"></a>
-                </div>
+          <div class="uk-margin">
+            <div class="uk-card uk-card-hover uk-card-default uk-card-small">
+              <div class="uk-card-body">
+                <h3 class="uk-card-title uk-margin-remove"> Mate Facto
+                  <small class="uk-text-muted uk-float-right">Savannah</small></h3>
+                <small class="uk-text-muted uk-float-right">401 E Hall St</small>
+                <p class="uk-text-meta uk-margin-remove"><strong>This Store Is Closed</strong></p>
+
+              </div>
+              <div class="uk-card-footer uk-background-muted">
               </div>
             </div>
+          </div>
 
-            <div class="uk-margin">
-              <div class="uk-card uk-card-hover uk-card-default uk-card-small">
-                <div class="uk-card-body">
-                  <h3 class="uk-card-title uk-margin-remove"> Chive Sea Bar And Lounge 
-                    <small
-                      class="uk-text-muted uk-float-right">Savannah</small></h3>
-                      <small
-                      class="uk-text-muted uk-float-right">4 W Broughton St</small></h3>
-                       <p class="uk-text-meta uk-margin-remove"><strong>This Store Is Closed</strong></p>
-                  
-                </div>
-                <div class="uk-card-footer uk-background-muted">
-                  <a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="icon: comments"></a>
-                </div>
+          <div class="uk-margin">
+            <div class="uk-card uk-card-hover uk-card-default uk-card-small">
+              <div class="uk-card-body">
+                <h3 class="uk-card-title uk-margin-remove"> Chive Sea Bar And Lounge
+                  <small class="uk-text-muted uk-float-right">Savannah</small></h3>
+                <small class="uk-text-muted uk-float-right">4 W Broughton St</small>
+                <p class="uk-text-meta uk-margin-remove"><strong>This Store Is Closed</strong></p>
+
+              </div>
+              <div class="uk-card-footer uk-background-muted">
               </div>
             </div>
+          </div>
+
+          <div id="closedStoreDiv"></div>
 
 
-            {{!-- <div class="uk-margin">
+          {{!-- <div class="uk-margin">
               <div class="uk-card uk-card-hover uk-card-default uk-card-small">
-                <div class="uk-card-body" id="closedStoreDiv">
+                <div class="uk-card-body">
                   <h3 class="uk-card-title uk-margin-remove"> store Name
                     <small
                       class="uk-text-muted uk-float-right">city</small></h3>
@@ -255,38 +251,106 @@
             </div> --}}
 
 
-          </div>
-
         </div>
+
+      </div>
     </div>
   </div>
 
 
-{{!-- FORM JAVASCRIPT --}}
+  {{!-- FORM JAVASCRIPT --}}
 
   <script>
     //fill in rest of info then html populate to page
+$("#saveBtnClosed").on("click", function (event) {
+      event.preventDefault();
+      var storeName = $("#storeNameC").val().trim();
+      var cityName = $("#cityC").val().trim();
+      var address = $("#streetC").val().trim();
+      var mainDiv = $("#closedStoreDiv");
 
-$("#saveBtnClosed").on("click", function(event){
-  event.preventDefault();
-  var storeName = $("#storeName").val().trim();
-  var cityName = $("#city").val().trim();
-  var address = $("#street").val().trim();
-  var mainDiv = $("#closedStoreDiv")
+      console.log(storeName);
+      console.log(cityName);
+      console.log(address);
 
-console.log(storeName)
-
-  var newH3 = $("<h3>").addClass("uk-card-title uk-margin-remove").text(storeName);
-  var newSmall = $("<small>").addClass("uk-text-muted uk-float-right").text(cityName);
-  var newSmall2 = $("<small>").addClass("uk-text-muted uk-float-right").text(address);
-
-mainDiv.append(newH3);
-newH3.append(storeName);
-newH3.append(newSmall);
-newH3.append(newSmall2);
+      var marginDiv = $("<div>").addClass("uk-margin");
+      var cardHoverDiv = $("<div>").addClass("uk-card uk-card-hover uk-card-default uk-card-small");
+      var cardBody = $("<div>").addClass("uk-card-body");
+      var newH3 = $("<h3>").addClass("uk-card-title uk-margin-remove").text(storeName);
+      var newSmall = $("<small>").addClass("uk-text-muted uk-float-right").text(cityName);
+      var newSmall2 = $("<small>").addClass("uk-text-muted uk-float-right").text(address);
+      var closed = $("<p>").addClass("uk-text-meta uk-margin-remove").text("This Store Is Closed")
+      var cardFooter = $("<div>").addClass("uk-card-footer uk-background-muted");
 
 
-})
+      mainDiv.append(marginDiv);
+      marginDiv.append(cardHoverDiv);
+      cardHoverDiv.append(cardBody);
+      cardBody.append(newH3);
+      newH3.append(storeName);
+      newH3.append(newSmall);
+      cardBody.append(newSmall2);
+      cardHoverDiv.append(cardFooter);
+
+
+    });
+
+     $("#saveBtnOpen").on("click", function (event) {
+      event.preventDefault();
+      var openStoreName = $("#storeNameO").val().trim();
+      var openCityName = $("#cityO").val().trim();
+      var openAddress = $("#streetO").val().trim();
+      var openMainDiv = $("#openStoreDiv");
+
+      console.log(openStoreName);
+      console.log(openCityName);
+      console.log(openAddress);
+
+      var openMarginDiv = $("<div>").addClass("uk-margin");
+      var openCardHoverDiv = $("<div>").addClass("uk-card uk-card-hover uk-card-default uk-card-small");
+      var openCardBody = $("<div>").addClass("uk-card-body");
+      var openNewH3 = $("<h3>").addClass("uk-card-title uk-margin-remove").text(openStoreName);
+      var openNewSmall = $("<small>").addClass("uk-text-muted uk-float-right").text(openCityName);
+      var openNewSmall2 = $("<small>").addClass("uk-text-muted uk-float-right").text(openAddress);
+      var openMask = $("<p>").addClass("uk-text-meta uk-margin-remove").text("Are Masks Required?");
+      var openMaskY = $("<p>").addClass("uk-text-meta uk-margin-remove").text("Yes");
+      var openDist = $("<p>").addClass("uk-text-meta uk-margin-remove").text("Social Distancing Required?");
+      var openDistY = $("<p>").addClass("uk-text-meta uk-margin-remove").text("Yes");
+      var openGlov = $("<p>").addClass("uk-text-meta uk-margin-remove").text("Are Gloves Required?");
+      var openGlovN = $("<p>").addClass("uk-text-meta uk-margin-remove").text("No");
+      var openHands = $("<p>").addClass("uk-text-meta uk-margin-remove").text("Do you require guests to wash hands upon entering?");
+      var openHandsN = $("<p>").addClass("uk-text-meta uk-margin-remove").text("No");
+      var openTemp = $("<p>").addClass("uk-text-meta uk-margin-remove").text("Do you require temperture checks upon entry?");
+      var openTempY = $("<p>").addClass("uk-text-meta uk-margin-remove").text("Yes");
+      var openServ = $("<p>").addClass("uk-text-meta uk-margin-remove").text("What services does this store currently provides?");
+      var openClean = $("<p>").addClass("uk-text-meta uk-margin-remove").text("Professional Sanitation of Store");
+      var openCardFooter = $("<div>").addClass("uk-card-footer uk-background-muted");
+
+
+      openMainDiv.append(openMarginDiv);
+      openMarginDiv.append(openCardHoverDiv);
+      openCardHoverDiv.append(openCardBody);
+      openCardBody.append(openNewH3);
+      openNewH3.append(openStoreName);
+      openNewH3.append(openNewSmall);
+      openCardBody.append(openNewSmall2);
+      openCardBody.append(openMask);
+      openCardBody.append(openMaskY);
+      openCardBody.append(openDist);
+      openCardBody.append(openDistY);
+      openCardBody.append(openGlov);
+      openCardBody.append(openGlovN);
+      openCardBody.append(openHands);
+      openCardBody.append(openHandsN);
+      openCardBody.append(openTemp);
+      openCardBody.append(openTempY);
+      openCardBody.append(openServ);
+      openCardBody.append(openClean);
+      openCardHoverDiv.append(openCardFooter);
+
+
+
+    })
 
 
 
