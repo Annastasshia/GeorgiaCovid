@@ -49,6 +49,25 @@ app.get('/counties/:countyName', (req, res) => {
   
 });
 
+// Covid Totals
+// app.get("/api/coviddatatotals", function(req, res) {
+//   db.CovidData.findAll({
+//     attributes: [
+//       [sequelize.fn('SUM', sequelize.col('cases')), 'total_cases'],
+//       [sequelize.fn('SUM', sequelize.col('deaths')), 'total_deaths'],
+//       [sequelize.fn('SUM', sequelize.col('cRate')), 'total_cRate'],
+//       [sequelize.fn('SUM', sequelize.col('hospital')), 'total_hospital'],
+//     ],
+//   }).then(function(dbCovData) {
+//     console.log(dbCovData.total_cases);
+//     // res.render("index", dbCoviddata.dataValues);
+//     res.render("index", dbCovData.total_cases);
+//   });
+// });
+  //Serves the body of the page aka "main.handlebars" to the container //aka "index.handlebars"
+  
+// });
+
 app.post('/counties/:countyName', (req, res) => {
   db.Coviddata.findOne({where: {cName: req.params.countyName}})
     .then(function(dbData){
