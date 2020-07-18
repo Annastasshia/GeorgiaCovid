@@ -9,9 +9,25 @@ svg {
 }
 
 h3{
-    font: 14px sans-serif;
+    font-family: 'Merriweather', serif;
+    font: 14px;
     color: white;
+   
+}
 
+h1{
+    font-family: 'Merriweather', serif;
+    font-weight: 900;
+}
+
+h4{
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+}
+
+p{
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
 }
 
 #map{
